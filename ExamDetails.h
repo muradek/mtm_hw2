@@ -16,16 +16,17 @@ class ExamDetails
     public:
     ExamDetails(int course_id, int month, int day, double hour, int length, std::string link = "");
     ~ExamDetails() = default;
-    ExamDetails ExamDetails(const ExamDetails& exam) = default;
+    ExamDetails(const ExamDetails& exam) = default;
     ExamDetails& operator=(const ExamDetails& exam) = default;
     std::string getLink();
     void setLink(std::string link);
     int operator- (ExamDetails exam);
     bool operator< (ExamDetails exam);
+    static ExamDetails makeMatamExam();
     // exceptions
-    class InvalidDateException{}
-    class InvalidTimeException{}
-    class InvalidArgsException{}
+    class InvalidDateException{};
+    class InvalidTimeException{};
+    class InvalidArgsException{};
 };
 
 #endif // EXAMDETAILS_H_
