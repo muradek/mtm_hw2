@@ -22,6 +22,7 @@ class ExamDetails
     void setLink(std::string link);
     int operator- (ExamDetails exam);
     bool operator< (ExamDetails exam);
+    friend std::ostream& operator<<(std::ostream& os, const ExamDetails& ed);
     static ExamDetails makeMatamExam();
     // exceptions
     class InvalidDateException{};

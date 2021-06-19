@@ -52,27 +52,18 @@ ExamDetails ExamDetails::makeMatamExam()
     return new_exam;
 }
 
-
-
-int main()
+std::ostream& operator<<(std::ostream& os, const ExamDetails& exam)
 {
-    ExamDetails exam1 = ExamDetails::makeMatamExam();
-    ExamDetails exam2(104032, 7, 11, 9.5, 3);
-    ExamDetails exam3 = exam1;
-    std::cout << "the difference between MATAM and infi 2m is " << (exam1-exam2) << " days" << std::endl;
-    ExamDetails& closest = (exam1 < exam2) ? exam1 : exam2;
-    std::cout << "your closest exam is:" << std::endl;
-    std::cout << closest.course_id << std::endl;
-    std::cout << closest.month << std::endl;
-    std::cout << closest.day << std::endl;
-    std::cout << closest.hour << std::endl;
-    std::cout << closest.length << std::endl;
-    std::cout << closest.link << std::endl;
-}
+    std::string number = "Course Number: " + std::to_string(exam.course_id);
 
-/*
-std::string ExamDetails::getLink()
-{
-    return this->link;
+    std::string date = std::to_string(exam.day)  + "." + std::to_string(exam.month);
+    std::string minutes = exam.hour - (int)exam.hour == 0.5 ? "30" : "00";
+    std::string hour_str = std::to_string((int)exam.hour) + ":" + minutes; 
+    std::string time = "Time: " + date + " at " + hour_str;
+
+    std::string duration = "Duration: " + std::to_string(exam.length) + ":" + "00";
+
+    std::string zoom_link = exam.link;
+
+    return os << number << std::endl << time << std::endl << duration << std::endl << zoom_link << std::endl;
 }
-*/
