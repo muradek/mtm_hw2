@@ -2,7 +2,7 @@
 #define EXAMDETAILS_H_
 
 #include <string>
-#include <iostream> 
+#include <iostream>
 
 class ExamDetails
 {
@@ -13,12 +13,12 @@ class ExamDetails
     int length;
     std::string link;
 
-    public:
+public:
     ExamDetails(int course_id, int month, int day, double hour, int length, std::string link = "");
     ~ExamDetails() = default;
     ExamDetails(const ExamDetails& exam) = default;
     ExamDetails& operator=(const ExamDetails& exam) = default;
-    std::string getLink();
+    std::string   getLink() const;
     void setLink(std::string link);
     int operator- (ExamDetails exam);
     bool operator< (ExamDetails exam);
