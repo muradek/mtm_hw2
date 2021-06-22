@@ -37,6 +37,8 @@ int ExamDetails::operator- (ExamDetails exam)
 {
     int months_difference = this->month - exam.month;
     int days_difference = this->day - exam.day;
+    // assuming each month is 30 days long,
+    // calculate total difference 
     int toatal_difference = months_difference*30 + days_difference;
     return toatal_difference;
 }
